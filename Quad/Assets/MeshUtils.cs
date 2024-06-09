@@ -72,6 +72,18 @@ public static class MeshUtils {
         return total + heightOffset;
     }
 
+    public static float fBM3D(float x, float y, float z, int octaves, float scale, float heightScale, float heightOffset)
+    {
+        float XY = fBM(x, y, octaves, scale, heightScale, heightOffset);
+        float YZ = fBM(y,z, octaves, scale, heightScale, heightOffset);
+        float XZ = fBM(x, z, octaves, scale, heightScale, heightOffset);
+        float YX = fBM(y,x, octaves, scale, heightScale, heightOffset);
+        float ZY = fBM(z,y, octaves, scale, heightScale, heightOffset);
+        float ZX = fBM(z, x, octaves, scale, heightScale, heightOffset);
+        return (XY + YZ + XZ + YX + ZY + ZX)/ 6.0f;
+    }
+
+
     public static Mesh MergeMeshes(Mesh[] meshes) {
         Mesh mesh = new Mesh();
 

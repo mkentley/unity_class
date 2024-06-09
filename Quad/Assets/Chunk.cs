@@ -31,12 +31,12 @@ public class Chunk : MonoBehaviour
         chunkData = new MeshUtils.BlockType[blockCount];
         for (int i = 0; i < blockCount; i++)
         {
-            int x = i % width +(int)location.x;
-            int y = (i / width) % height+(int)location.y;
-            int z = i / (width * height)+(int)location.z;
-            int surfaceHeight = (int) MeshUtils.fBM(x, z, World.surfaceSettings.octaves, 
-                    World.surfaceSettings.scale, 
-                    World.surfaceSettings.heightScale, 
+            int x = i % width + (int)location.x;
+            int y = (i / width) % height + (int)location.y;
+            int z = i / (width * height) + (int)location.z;
+            int surfaceHeight = (int)MeshUtils.fBM(x, z, World.surfaceSettings.octaves,
+                    World.surfaceSettings.scale,
+                    World.surfaceSettings.heightScale,
                     World.surfaceSettings.heightOffset);
 
             int stoneHeight = (int)MeshUtils.fBM(x, z, World.stoneSettings.octaves,
@@ -54,6 +54,11 @@ public class Chunk : MonoBehaviour
                World.diamondBSettings.heightScale,
                World.diamondBSettings.heightOffset);
 
+            int deepCave = (int)MeshUtils.fBM3D(x, z, z, World.cavesSettings.octaves,
+               World.cavesSettings.scale,
+               World.cavesSettings.heightScale,
+               World.cavesSettings.heightOffset);
+
             // At the surface, we want grass.
             // Underneath that we have dirt.
             // Underneath that, we have stone.
@@ -68,6 +73,9 @@ public class Chunk : MonoBehaviour
             else if (y < surfaceHeight)
                 chunkData[i] = MeshUtils.BlockType.DIRT;
             else
+                chunkData[i] = MeshUtils.BlockType.AIR;
+
+            if (deepCave < World.cavesSettings.probability)
                 chunkData[i] = MeshUtils.BlockType.AIR;
         }
     }

@@ -354,6 +354,7 @@
 "Assets/CameraController.cs"
 "Assets/Chunk.cs"
 "Assets/MeshUtils.cs"
+"Assets/Perlin3DGrapher.cs"
 "Assets/PerlinGrapher.cs"
 "Assets/Quad.cs"
 "Assets/World.cs"

@@ -43,7 +43,9 @@ public class World : MonoBehaviour
 
     public static PerlinSettings diamondBSettings;
     public PerlinGrapher diamondB;
-
+   
+    public static PerlinSettings cavesSettings;
+    public Perlin3DGrapher caves;
 
     void Start() { 
         loadingBar.maxValue = worldDimensions.x*worldDimensions.y*worldDimensions.z;
@@ -75,7 +77,12 @@ public class World : MonoBehaviour
                  diamondB.octaves,
                  diamondB.heightOffset,
                  diamondB.probability
-
+                 );
+        cavesSettings = new PerlinSettings(caves.heightScale,
+                 caves.scale,
+                 caves.octaves,
+                 caves.heightOffset,
+                 caves.DrawCutOff
                  ); 
         StartCoroutine(BuildWorld());  }
 
