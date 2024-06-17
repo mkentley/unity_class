@@ -4224,21 +4224,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: caves
       objectReference: {fileID: 0}
+    - target: {fileID: 7875027568118677558, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
       propertyPath: scale
-      value: 0.066
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
+      propertyPath: octaves
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
       propertyPath: DrawCutOff
-      value: 0.71
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
       propertyPath: heightScale
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7875027568118677560, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
       propertyPath: heightOffset
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7875027568118677561, guid: 76c9892e4b20c6e49968ff69afa5886b, type: 3}
       propertyPath: m_RootOrder

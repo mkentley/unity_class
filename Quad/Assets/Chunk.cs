@@ -64,7 +64,17 @@ public class Chunk : MonoBehaviour
             // Underneath that, we have stone.
             // Bettween diamondB and diamondT though, we may have a block of diamond. This will never be on top, so we only care about the 
             // side view?
-            if (surfaceHeight == y)
+            if (y == 0)
+            {
+                chunkData[i] = MeshUtils.BlockType.BEDROCK;
+                continue;
+            }
+
+            if (deepCave < World.cavesSettings.probability) { 
+               chunkData[i] = MeshUtils.BlockType.AIR;
+               continue;
+            }
+             if (surfaceHeight == y)
                 chunkData[i] = MeshUtils.BlockType.GRASSSIDE;
             else if (y < diamondTHeight && y >= diamondBHeight && UnityEngine.Random.Range(0.0f, 1.0f) <= World.diamondTSettings.probability)
                 chunkData[i] = MeshUtils.BlockType.DIAMOND;
@@ -75,8 +85,9 @@ public class Chunk : MonoBehaviour
             else
                 chunkData[i] = MeshUtils.BlockType.AIR;
 
-            if (deepCave < World.cavesSettings.probability)
-                chunkData[i] = MeshUtils.BlockType.AIR;
+           
+
+           
         }
     }
 
